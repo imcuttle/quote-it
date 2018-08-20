@@ -37,6 +37,7 @@ function _quote(string, char = '"', reg = escapable, meta) {
 
 /**
  * Uses single quote to wrap string.
+ * @public
  * @param string
  * @return {string}
  */
@@ -46,6 +47,7 @@ export function single(string) {
 
 /**
  * Uses double quote to wrap string.
+ * @public
  * @param string
  * @return {string}
  */
@@ -53,6 +55,13 @@ export function double(string) {
   return quote(string, '"')
 }
 
+/**
+ * Uses `quoteChar` to wrap string.
+ * @public
+ * @param string {string}
+ * @param quoteChar {string}
+ * @return {string}
+ */
 export default function quote(string, quoteChar = '"') {
   return _quote(
     string,
