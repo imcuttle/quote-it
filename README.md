@@ -13,7 +13,7 @@ Safe quoting a given string without adding duplicate quotes
 
 ### quote
 
-[index.js:43-54](https://github.com/imcuttle/quote-it/blob/abdb42b289e209b532b979fdcd0efd0cdc73aea4/index.js#L43-L54 'Source code on GitHub')
+[index.js:46-57](https://github.com/imcuttle/quote-it/blob/5c1b0291e0cc2742427b102f31b68d1ca0cf1f87/index.js#L46-L57 'Source code on GitHub')
 
 Uses `quoteChar` to wrap string.
 
@@ -22,11 +22,18 @@ Uses `quoteChar` to wrap string.
 - `string` {string}
 - `quoteChar` {string}
 
+#### Examples
+
+```javascript
+import quote from 'quote-it'
+quote('abc', "'") === "'abc'"
+```
+
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 ### single
 
-[index.js:62-64](https://github.com/imcuttle/quote-it/blob/abdb42b289e209b532b979fdcd0efd0cdc73aea4/index.js#L62-L64 'Source code on GitHub')
+[index.js:68-70](https://github.com/imcuttle/quote-it/blob/5c1b0291e0cc2742427b102f31b68d1ca0cf1f87/index.js#L68-L70 'Source code on GitHub')
 
 Uses single quote to wrap string.
 
@@ -34,11 +41,18 @@ Uses single quote to wrap string.
 
 - `string`
 
+#### Examples
+
+```javascript
+import { single } from 'quote-it'
+single("a'bc") === "'a'bc'"
+```
+
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 ### double
 
-[index.js:72-74](https://github.com/imcuttle/quote-it/blob/abdb42b289e209b532b979fdcd0efd0cdc73aea4/index.js#L72-L74 'Source code on GitHub')
+[index.js:78-80](https://github.com/imcuttle/quote-it/blob/5c1b0291e0cc2742427b102f31b68d1ca0cf1f87/index.js#L78-L80 'Source code on GitHub')
 
 Uses double quote to wrap string.
 
