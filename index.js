@@ -39,6 +39,9 @@ function _quote(string, char = '"', reg = escapable, meta) {
  * @param string {string}
  * @param quoteChar {string}
  * @return {string}
+ * @example
+ * import quote from 'quote-it'
+ * quote("abc", "'") === "'abc'"
  */
 export default function quote(string, quoteChar = '"') {
   if (quoteChar.length > 1 && process.env.NODE_ENV !== 'production') {
@@ -58,6 +61,9 @@ export default function quote(string, quoteChar = '"') {
  * @public
  * @param string
  * @return {string}
+ * @example
+ * import { single } from 'quote-it'
+ * single("a'bc") === "'a\'bc'"
  */
 export function single(string) {
   return quote(string, "'")

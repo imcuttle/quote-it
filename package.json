@@ -6,8 +6,8 @@
   "author": "imcuttle",
   "scripts": {
     "test": "jest",
-    "prepublishOnly": "npm test && npm run doc",
-    "precommit": "pretty-quick --staged",
+    "prepublishOnly": "npm test",
+    "precommit": "pretty-quick --staged && npm run doc",
     "build": "rimraf lib && babel index.js -Do index.es5.js",
     "dev": "npm run build -- -w",
     "doc": "documentation --github --markdown-toc=false readme index.js -a public -s \"API\"",

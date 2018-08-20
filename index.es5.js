@@ -49,6 +49,9 @@ function _quote(string) {
  * @param string {string}
  * @param quoteChar {string}
  * @return {string}
+ * @example
+ * import quote from 'quote-it'
+ * quote("abc", "'") === "'abc'"
  */
 function quote(string) {
   var _Object$assign
@@ -76,6 +79,9 @@ function quote(string) {
  * @public
  * @param string
  * @return {string}
+ * @example
+ * import { single } from 'quote-it'
+ * single("a'bc") === "'a\'bc'"
  */
 function single(string) {
   return quote(string, "'")
