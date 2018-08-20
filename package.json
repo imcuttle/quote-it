@@ -1,0 +1,55 @@
+{
+  "name": "quote-it",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Safe quoting a given string without adding duplicate quotes",
+  "author": "imcuttle",
+  "scripts": {
+    "test": "jest",
+    "prepublishOnly": "npm test && npm run doc",
+    "precommit": "pretty-quick --staged",
+    "build": "rimraf lib && babel src/ -Dd lib",
+    "dev": "npm run build -- -w",
+    "doc": "documentation --github --markdown-toc=false readme index.js -a public -s \"API\"",
+    "version": "npm run changelog",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+  },
+  "keywords": [
+    "quote-it"
+  ],
+  "license": "MIT",
+  "repository": "imcuttle/quote-it",
+  "jest": {
+    "testMatch": [
+      "**/__test{s,}__/*.(spec|test).{t,j}s{x,}"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "@types/jest": "^23.3.1",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^23.4.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "conventional-changelog-cli": "^2.0.1",
+    "documentation": "^8.1.1",
+    "husky": "^0.14.3",
+    "jest": "^23.5.0",
+    "prettier": "^1.14.2",
+    "pretty-quick": "^1.6.0",
+    "rimraf": "^2.6.2"
+  }
+}
