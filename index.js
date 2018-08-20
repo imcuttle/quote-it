@@ -1,5 +1,7 @@
 // Forked from https://github.com/substack/jsonify/blob/master/lib/stringify.js
+
 function getEscapable(char) {
+  char = char === '-' ? '\\-' : char
   return new RegExp(
     `[\\\\${char}\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]`,
     'g'
@@ -36,6 +38,26 @@ function _quote(string, char = '"', reg = escapable, meta) {
 }
 
 /**
+ * Uses `quoteChar` to wrap string.
+ * @public
+ * @param string {string}
+ * @param quoteChar {string}
+ * @return {string}
+ */
+export default function quote(string, quoteChar = '"') {
+  if (quoteChar.length > 1 && process.env.NODE_ENV !== 'production') {
+    console.error('quote: `quoteChar` is recommended as single character, but ' + JSON.stringify(quoteChar) + '.')
+  }
+
+  return _quote(
+    string,
+    quoteChar,
+    getEscapable(quoteChar),
+    Object.assign({}, commonMeta, { [quoteChar]: `\\${quoteChar}` })
+  )
+}
+
+/**
  * Uses single quote to wrap string.
  * @public
  * @param string
@@ -53,20 +75,4 @@ export function single(string) {
  */
 export function double(string) {
   return quote(string, '"')
-}
-
-/**
- * Uses `quoteChar` to wrap string.
- * @public
- * @param string {string}
- * @param quoteChar {string}
- * @return {string}
- */
-export default function quote(string, quoteChar = '"') {
-  return _quote(
-    string,
-    quoteChar,
-    getEscapable(quoteChar),
-    Object.assign({}, commonMeta, { [quoteChar]: `\\${quoteChar}` })
-  )
 }

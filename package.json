@@ -1,14 +1,14 @@
 {
   "name": "quote-it",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.es5.js",
   "description": "Safe quoting a given string without adding duplicate quotes",
   "author": "imcuttle",
   "scripts": {
     "test": "jest",
     "prepublishOnly": "npm test && npm run doc",
     "precommit": "pretty-quick --staged",
-    "build": "rimraf lib && babel src/ -Dd lib",
+    "build": "rimraf lib && babel index.js -Do index.es5.js",
     "dev": "npm run build -- -w",
     "doc": "documentation --github --markdown-toc=false readme index.js -a public -s \"API\"",
     "version": "npm run changelog",
@@ -51,5 +51,6 @@
     "prettier": "^1.14.2",
     "pretty-quick": "^1.6.0",
     "rimraf": "^2.6.2"
-  }
+  },
+  "dependencies": {}
 }
